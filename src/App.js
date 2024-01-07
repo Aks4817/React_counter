@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+// import React from 'react';
+import { useState } from "react";
+import "./App.css";
 
-function App() {
+export default function App() {
+  // let count=0;
+  const[count, setCount] = useState(0)
+  function addClickHandler(){
+    setCount(count+1)
+  }
+  function subtractClickHandler(){
+    setCount(count-1)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="w-[100vw] h-[100vh] flex flex-col justify-center items-center bg-[#344151]" >
+        <div className="text-white text-2xl ">Increment and decrement</div>
+        <div className="flex flex-row text-[5rem]  bg-white w-[15%] justify-evenly gap-4">
+          <button onClick={subtractClickHandler}>-</button>
+          <div>{count}</div>
+          <button onClick={addClickHandler}>+</button>
+        </div>
+      </div>
+    </>
   );
 }
-
-export default App;
